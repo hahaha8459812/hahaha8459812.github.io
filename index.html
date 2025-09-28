@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SealDice & AstrBot 指令手册</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS 变量定义 (方便主题切换) --- */
+        :root {
+            --bg-color: #1a202c;
+            --surface-color: #2d3748;
+            --primary-color: #4299e1;
+            --text-color: #e2e8f0;
+            --text-muted-color: #a0aec0;
+            --border-color: #4a5568;
+            --accent-gradient: linear-gradient(90deg, #4299e1, #38b2ac);
+            --shadow-color: rgba(0, 0, 0, 0.25);
+        }
+
+        /* --- 基础与重置样式 --- */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0;
+            padding: 2rem 1rem;
+            -webkit-text-size-adjust: 100%; /* 防止移动端字体自动缩放 */
+        }
+
+        /* --- 自定义滚动条 --- */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--border-color);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* --- 主容器与标题 --- */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background-color: var(--surface-color);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .main-header {
+            background: var(--accent-gradient);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .main-header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        /* --- 标签页导航 --- */
+        .tab-nav {
+            display: flex;
+            background-color: var(--bg-color);
+        }
+
+        .tab-link {
+            flex-grow: 1;
+            padding: 1rem;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: 500;
+            color: var(--text-muted-color);
+            background-color: transparent;
+            position: relative;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .tab-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: var(--accent-gradient);
+            transition: width 0.3s ease;
+        }
+
+        .tab-link:hover {
+            color: var(--text-color);
+        }
+
+        .tab-link.active {
+            color: white;
+            font-weight: 700;
+        }
+
+        .tab-link.active::after {
+            width: 70%;
+        }
+
+        /* --- 标签页内容 --- */
+        .tab-content {
+            display: none;
+            padding: 2rem;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- 内容排版 --- */
+        h2 {
+            font-size: 1.8em;
+            color: white;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* --- 插件卡片样式 --- */
+        .plugin-card {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .plugin-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .plugin-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.25em;
+            font-weight: 700;
+            color: white;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .plugin-header .icon {
+            width: 24px;
+            height: 24px;
+            fill: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        .plugin-card p, .plugin-card ul {
+            color: var(--text-muted-color);
+            margin-bottom: 1rem;
+        }
+
+        .plugin-card ul {
+            padding-left: 1.5rem;
+        }
+        
+        .plugin-card li {
+            margin-bottom: 0.75rem;
+            line-height: 1.8;
+        }
+        
+        .plugin-card li strong {
+            color: var(--text-color);
+        }
+
+        /* --- 特殊元素样式 --- */
+        code, .code-inline {
+            background-color: var(--border-color);
+            color: #90cdf4;
+            padding: 0.2em 0.5em;
+            border-radius: 6px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            font-size: 0.9em;
+            word-break: break-all; /* 强制代码块内换行 */
+        }
+
+        .command-block {
+            background-color: #141922;
+            padding: 1rem;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+            border: 1px solid var(--border-color);
+            margin-top: 1rem;
+        }
+        
+        .api-category h5 {
+            font-size: 1.1em;
+            color: var(--text-muted-color);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .api-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .api-grid .code-inline {
+            transition: background-color 0.3s, color 0.3s;
+            cursor: default;
+        }
+
+        .api-grid .code-inline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .notice {
+            background-color: rgba(250, 240, 137, 0.1);
+            border-left: 4px solid #f6e05e;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            color: #faf089;
+        }
+        
+        .notice strong {
+            color: white;
+        }
+        
+        /* --- 移动端响应式优化 --- */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 0; /* 移除body边距，让容器占满 */
+            }
+
+            .container {
+                border-radius: 0;
+                border: none;
+                box-shadow: none;
+            }
+
+            .main-header {
+                padding: 1.5rem 1rem;
+            }
+            .main-header h1 {
+                font-size: 1.8em;
+            }
+            
+            .tab-link {
+                font-size: 1em;
+                padding: 0.8rem 0.5rem;
+            }
+
+            /* 核心改动：缩小移动端的内容边距 */
+            .tab-content {
+                padding: 1.5rem 1rem; 
+            }
+
+            .plugin-card {
+                padding: 1.25rem 1rem;
+            }
+            
+            .plugin-header {
+                font-size: 1.15em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <header class="main-header">
+            <h1>SealDice & AstrBot 指令手册</h1>
+        </header>
+
+        <nav class="tab-nav">
+            <button class="tab-link" onclick="openTab(event, 'SealDice')" id="defaultOpen">SealDice</button>
+            <button class="tab-link" onclick="openTab(event, 'AstrBot')">AstrBot</button>
+        </nav>
+
+        <!-- SealDice 内容 -->
+        <section id="SealDice" class="tab-content">
+            <h2>SealDice (v1.5.0dev2)</h2>
+            
+            <div class="plugin-card">
+                <h4 class="plugin-header">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.5 2.5a.5.5 0 0 0-.5-.5h-18a.5.5 0 0 0-.5.5v18a.5.5 0 0 0 .5.5h18a.5.5 0 0 0 .5-.5zM3 3h18v18H3zm4.5 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm6 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm1.5 4.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-6 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-1.5 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm6 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg>
+                    跑团使用指令
+                </h4>
+                <p>请参照SealDice官方使用手册以获取最详细的指令列表。</p>
+            </div>
+
+            <div class="plugin-card">
+                <h4 class="plugin-header">
+                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H4V4h16zM6 10h4v4H6zm6 0h4v4h-4zm-6-4h4v4H6zm6 0h4v4h-4z"/></svg>
+                    牌堆
+                </h4>
+                <ul>
+                    <li>SealDice内置牌堆</li>
+                    <li>coj名场面</li>
+                    <li>我在地下城中发现的东西</li>
+                    <li>随机神莓</li>
+                </ul>
+            </div>
+
+            <div class="plugin-card">
+                <h4 class="plugin-header">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zM12 8a4 4 0 1 0 4 4 4 4 0 0 0-4-4zm0 6a2 2 0 1 1 2-2 2 2 0 0 1-2 2z"/></svg>
+                    娱乐指令
+                </h4>
+                <ul>
+                    <li>今日人品: <code class="code-inline">今日人品.jrrp</code></li>
+                    <li>鸽子理由: <code class="code-inline">鸽子理由.gugu</code></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- AstrBot 内容 -->
+        <section id="AstrBot" class="tab-content">
+            <h2>AstrBot (v4.1.7)</h2>
+
+            <div class="plugin-card">
+                <h4 class="plugin-header">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.38 19.55a1 1 0 0 0 .61-.21l1.43-1.1a8 8 0 1 1 3.25-15.8 1 1 0 0 0-.51 1.9A6 6 0 1 0 12 18a5.92 5.92 0 0 0 4.49-2.15 1 1 0 1 0-1.4-1.42A4 4 0 0 1 12 16a3.91 3.91 0 0 1-2.9-1.22 1 1 0 1 0-1.5 1.33A5.91 5.91 0 0 0 12 18a6 6 0 0 0 5.66-4h-2.33a1 1 0 0 0 0 2h4.5a1 1 0 0 0 1-1V10a1 1 0 0 0-2 0v1.55A10 10 0 0 0 12 2z"/></svg>
+                    AI聊天
+                </h4>
+                <p>使用备用渠道，暂时可用。</p>
+                <ul>
+                    <li>在私聊中发送消息会直接回复。</li>
+                    <li>在群聊中通过 <code class="code-inline">@骰子</code>, <code class="code-inline">引用骰子消息</code>, 发送 <code class="code-inline">/</code>, 或发送 <code class="code-inline">/&lt;错误的指令&gt;</code> 均可触发AI回复。</li>
+                </ul>
+            </div>
+
+            <div class="notice">
+                <strong>插件指令使用须知：</strong><br>
+                为了防止误激活插件，已启用关键词唤醒。在使用所有插件时，请在指令前加上 <code class="code-inline">/</code> 前缀。
+            </div>
+
+            <div class="plugin-card">
+                <h4 class="plugin-header">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.5a.5.5 0 0 0-1 0V5a.5.5 0 0 0 1 0zM7.05 7.05a.5.5 0 0 0-.7.7l1.76 1.77a.5.5 0 0 0 .7-.7zm9.9 0a.5.5 0 1 0-.7-.7L14.48 8.1a.5.5 0 0 0 .7.7zM12 7a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zM4 11.5a.5.5 0 0 0 0 1h2.5a.5.5 0 0 0 0-1zm13.5 0a.5.5 0 0 0 0 1H20a.5.5 0 0 0 0-1zM8.81 14.48a.5.5 0 1 0-.7.7l1.77 1.76a.5.5 0 0 0 .7-.7zm6.38 0a.5.5 0 0 0-.7.7l1.76 1.77a.5.5 0 1 0 .7-.7zM12 19a.5.5 0 0 0-1 0v2.5a.5.5 0 0 0 1 0z"/></svg>
+                    【今日运势】
+                </h4>
+                <p>生成用户的专属运势图，包含运势、宜忌、吉时等信息。</p>
+                <div class="command-block">用户：/jrys (或 /今日运势, /运势)</div>
+            </div>
+
+            <div class="plugin-card">
+                <h4 class="plugin-header">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+                    【点歌】
+                </h4>
+                <p>搜索并点播歌曲。</p>
+                <div class="command-block">用户：/点歌 歌名
+骰子：(返回歌曲列表)
+1. ####
+2. ####
+3. ####
+用户：1
+骰子：[发送序号对应的音乐卡片]</div>
+            </div>
+            
+            <div class="plugin-card">
+                <h4 class="plugin-header">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 8a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3zm-4-1a1 1 0 1 0-2 0 1 1 0 0 0 2 0zM8 6a1 1 0 0 0 0 2h8a1 1 0 0 0 0-2zm12 9.49V19a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3.51a4 4 0 0 1 1.4-2.82l.6-.61V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-2.03l.6.61A4 4 0 0 1 20 15.49z"/></svg>
+                    【戳一戳】
+                </h4>
+                <p>让骰子代替你戳一戳指定用户。</p>
+                <div class="command-block">用户：攻击 @用户名</div>
+            </div>
+
+            <div class="plugin-card">
+                <h4 class="plugin-header">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5 3h-15A2.5 2.5 0 0 0 2 5.5v13A2.5 2.5 0 0 0 4.5 21h15a2.5 2.5 0 0 0 2.5-2.5v-13A2.5 2.5 0 0 0 19.5 3zM8 6a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm0 4H4V8h4zm10 6H4v-2h14zm0-4H10v-2h8zm0-4H10V8h8z"/></svg>
+                    【QQ信息卡片】
+                </h4>
+                <p>获取指定用户的QQ信息卡片，新成员入群时也会自动发送。</p>
+                <div class="command-block">用户：/盒 @用户名 (或 /盒 QQ号)</div>
+            </div>
+
+            <div class="plugin-card">
+                <h4 class="plugin-header">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 2h-9A4.5 4.5 0 0 0 3 6.5V11h18V6.5A4.5 4.5 0 0 0 16.5 2zM6 7a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm3 0a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm3 0a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm3 0a1 1 0 1 1 1-1 1 1 0 0 1-1 1zM3 13v4.5A4.5 4.5 0 0 0 7.5 22h9a4.5 4.5 0 0 0 4.5-4.5V13z"/></svg>
+                    【群俄罗斯轮盘赌】
+                </h4>
+                <ul>
+                    <li><strong>装填子弹:</strong> <code class="code-inline">/装填 [子弹数量]</code> (1-6，默认为1)</li>
+                    <li><strong>开枪:</strong> <code class="code-inline">/开枪</code> (实弹禁言60-3000秒，需管理权限)</li>
+                    <li><strong>走火开关:</strong> <code class="code-inline">/走火开</code> 或 <code class="code-inline">/走火关</code> (群聊中0.5%概率随机走火)</li>
+                    <li><strong>超时机制:</strong> 装填后60秒无操作，游戏自动结束。</li>
+                </ul>
+            </div>
+            
+            <div class="plugin-card">
+                <h4 class="plugin-header">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm4.29-10.29L13 13v4a1 1 0 0 1-2 0v-3.59l3-3a1 1 0 1 1 1.42 1.42zM13 7a1 1 0 1 1-1-1 1 1 0 0 1 1 1z"/></svg>
+                    【恶魔轮盘】
+                </h4>
+                <p>一个内容更丰富的轮盘游戏。</p>
+                <div class="command-block">输入 <code class="code-inline">恶魔轮盘使用说明</code> 获取详细玩法。</div>
+            </div>
+
+            <div class="plugin-card">
+                <h4 class="plugin-header">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zM12 6l-4 4h3v6h2v-6h3z"/></svg>
+                    【明日方舟信息查询】
+                </h4>
+                <ul>
+                    <li>显示帮助: <code class="code-inline">/arkhelp</code></li>
+                    <li>查询干员信息: <code class="code-inline">/arkgy 娜仁图亚</code></li>
+                    <li>查询其他信息: <code class="code-inline">/arkqt 娜仁图亚的信物</code></li>
+                </ul>
+            </div>
+
+            <div class="plugin-card">
+                <h4 class="plugin-header">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM5 19V5h14v14zM8.5 13.5l2.5 3 3.5-4.5 4.5 6H5z"/></svg>
+                    【瑟图】
+                </h4>
+                <p>图源API时好时坏，报错请多次尝试。无R18内容。</p>
+                <ul>
+                    <li>随机图片: <code class="code-inline">setu</code></li>
+                    <li>带标签搜索: <code class="code-inline">setu 标签1,标签2&标签3...</code> (标签无空格, 支持AND和OR)</li>
+                </ul>
+            </div>
+            
+            <div class="plugin-card">
+                <h4 class="plugin-header">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm-2-9a1 1 0 0 1 1-1h2a1 1 0 0 1 0 2h-2a1 1 0 0 1-1-1zm4 2H8a1 1 0 0 1 0-2h4a1 1 0 0 1 0 2zm0 3H8a1 1 0 0 1 0-2h4a1 1 0 0 1 0 2z"/></svg>
+                    【CCB】
+                </h4>
+                <ul>
+                    <li>进行CCB: <code class="code-inline">/ccb @用户名</code></li>
+                    <li>次数排行: <code class="code-inline">/ccbtop</code></li>
+                    <li>注入量排行: <code class="code-inline">/ccbvol</code></li>
+                    <li>单次最大量排行: <code class="code-inline">/ccbmax</code></li>
+                    <li>查询信息: <code class="code-inline">/ccbinfo @用户名</code> (不@则查自己)</li>
+                </ul>
+            </div>
+
+            <div class="plugin-card">
+                <h4 class="plugin-header">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 10h5l-6 8v-6H7l6-8zM3 3h18v2H3zm0 16h18v2H3z"/></svg>
+                    【热门API聚合】
+                </h4>
+                <p>使用 <code class="code-inline">/API名称</code> 调用，部分需要后缀。例: <code class="code-inline">/中草药 何首乌</code></p>
+                <div class="api-category">
+                    <h5>【text】52个：</h5>
+                    <div class="api-grid">
+                        <span class="code-inline">讲讲社会</span> <span class="code-inline">讲讲人生</span> <span class="code-inline">讲个笑话</span> <span class="code-inline">讲讲爱情</span> <span class="code-inline">讲讲温柔</span> <span class="code-inline">讲讲摆烂</span> <span class="code-inline">来句古诗</span> <span class="code-inline">来碗毒鸡汤</span> <span class="code-inline">讲讲舔狗</span> <span class="code-inline">来句情话</span> <span class="code-inline">讲讲伤感</span> <span class="code-inline">来句骚话</span> <span class="code-inline">讲讲英汉</span> <span class="code-inline">电影票房</span> <span class="code-inline">脑筋急弯</span> <span class="code-inline">随机谜语</span> <span class="code-inline">随机姓名</span> <span class="code-inline">B站更新</span> <span class="code-inline">光遇任务</span> <span class="code-inline">来点段子</span> <span class="code-inline">兽语加密</span> <span class="code-inline">兽语解密</span> <span class="code-inline">看看黄历</span> <span class="code-inline">二次元形象</span> <span class="code-inline">动漫一言</span> <span class="code-inline">香烟价格</span> <span class="code-inline">人品运势</span> <span class="code-inline">KFC</span> <span class="code-inline">QQ签名</span> <span class="code-inline">嘲讽</span> <span class="code-inline">晚安</span> <span class="code-inline">胡乱描述</span> <span class="code-inline">Linux命令</span> <span class="code-inline">身份证查询</span> <span class="code-inline">高校查询</span> <span class="code-inline">古诗文查询</span> <span class="code-inline">今天吃什么</span> <span class="code-inline">黄金价格</span> <span class="code-inline">人物年轮</span> <span class="code-inline">车辆查询</span> <span class="code-inline">起个网名</span> <span class="code-inline">号码归属地</span> <span class="code-inline">挑战古诗词</span> <span class="code-inline">显卡排行榜</span> <span class="code-inline">垃圾分类</span> <span class="code-inline">刑法</span> <span class="code-inline">来碗鸡汤</span> <span class="code-inline">发病</span> <span class="code-inline">来句诗</span> <span class="code-inline">文案</span> <span class="code-inline">来篇文章</span> <span class="code-inline">中草药</span>
+                    </div>
+                </div>
+                <div class="api-category">
+                    <h5>【image】45个：</h5>
+                    <div class="api-grid">
+                        <span class="code-inline">电脑壁纸</span> <span class="code-inline">来个头像</span> <span class="code-inline">手机壁纸</span> <span class="code-inline">读世界</span> <span class="code-inline">来份早报</span> <span class="code-inline">生成二维码</span> <span class="code-inline">测CP</span> <span class="code-inline">看看风景</span> <span class="code-inline">随便来点</span> <span class="code-inline">来点龙图</span> <span class="code-inline">来点cos</span> <span class="code-inline">来点二次元</span> <span class="code-inline">海贼王</span> <span class="code-inline">看看猫猫</span> <span class="code-inline">doro结局</span> <span class="code-inline">晚安</span> <span class="code-inline">来点腹肌</span> <span class="code-inline">原神</span> <span class="code-inline">来点坤图</span> <span class="code-inline">看看腿</span> <span class="code-inline">来点帅哥</span> <span class="code-inline">超甜辣妹</span> <span class="code-inline">每日一签</span> <span class="code-inline">竖屏动漫壁纸</span> <span class="code-inline">奥运会</span> <span class="code-inline">光遇日历</span> <span class="code-inline">斗图</span> <span class="code-inline">热榜</span> <span class="code-inline">星座运势</span> <span class="code-inline">小动物</span> <span class="code-inline">三坑少女</span> <span class="code-inline">画画</span> <span class="code-inline">LOL查询</span> <span class="code-inline">看看妞</span> <span class="code-inline">bing图</span> <span class="code-inline">随机上色</span> <span class="code-inline">原神黄历</span> <span class="code-inline">艺术字</span> <span class="code-inline">搜图</span> <span class="code-inline">每日日报</span> <span class="code-inline">搜表情</span> <span class="code-inline">搜菜谱</span> <span class="code-inline">高清壁纸</span> <span class="code-inline">今日运势</span> <span class="code-inline">日历</span>
+                    </div>
+                </div>
+                <div class="api-category">
+                    <h5>【video】61个：</h5>
+                    <div class="api-grid">
+                        <span class="code-inline">看看女大</span> <span class="code-inline">看看骚的</span> <span class="code-inline">看看玉足</span> <span class="code-inline">看看漫画</span> <span class="code-inline">看看emo</span> <span class="code-inline">看看动漫</span> <span class="code-inline">看看治愈</span> <span class="code-inline">看看帅哥</span> <span class="code-inline">来点色色</span> <span class="code-inline">女高中生</span> <span class="code-inline">女大</span> <span class="code-inline">欲梦</span> <span class="code-inline">看看黑丝</span> <span class="code-inline">看看白丝</span> <span class="code-inline">高质量小姐姐</span> <span class="code-inline">深刻推荐</span> <span class="code-inline">看看小葫芦</span> <span class="code-inline">看看jk</span> <span class="code-inline">看看久喵</span> <span class="code-inline">仙桃猫</span> <span class="code-inline">看看公主</span> <span class="code-inline">看看心情</span> <span class="code-inline">看看小雪</span> <span class="code-inline">看看红鸾</span> <span class="code-inline">看看狼宝</span> <span class="code-inline">看看雪梨</span> <span class="code-inline">看看兔兔</span> <span class="code-inline">拜托前辈</span> <span class="code-inline">看看穿搭</span> <span class="code-inline">鞠婧祎</span> <span class="code-inline">音乐视频</span> <span class="code-inline">周扬青</span> <span class="code-inline">周清欢</span> <span class="code-inline">潇潇</span> <span class="code-inline">看看甜妹</span> <span class="code-inline">看看清纯</span> <span class="code-inline">看看萌娃</span> <span class="code-inline">看看慢摇</span> <span class="code-inline">看看COS</span> <span class="code-inline">看看余震</span> <span class="code-inline">看看欲梦</span> <span class="code-inline">看看萝莉</span> <span class="code-inline">看看晴天</span> <span class="code-inline">光剑变装</span> <span class="code-inline">动漫变装</span> <span class="code-inline">完美身材</span> <span class="code-inline">火车摇</span> <span class="code-inline">蹲下变装</span> <span class="code-inline">看看吊带</span> <span class="code-inline">擦玻璃</span> <span class="code-inline">背影变装</span> <span class="code-inline">安慕希</span> <span class="code-inline">看看微胖</span> <span class="code-inline">硬气卡点</span> <span class="code-inline">黑白双煞</span> <span class="code-inline">猫系女友</span> <span class="code-inline">看看女仆</span> <span class="code-inline">又纯又欲</span> <span class="code-inline">看看甩裙</span> <span class="code-inline">看看腹肌</span> <span class="code-inline">看看原神</span>
+                    </div>
+                </div>
+                <div class="api-category">
+                    <h5>【audio】8个：</h5>
+                    <div class="api-grid">
+                        <span class="code-inline">每日听力</span> <span class="code-inline">逆天语音</span> <span class="code-inline">坤叫</span> <span class="code-inline">报时</span> <span class="code-inline">王者语音</span> <span class="code-inline">喘息</span> <span class="code-inline">原神语音</span> <span class="code-inline">御姐撒娇</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="plugin-card">
+                <h4 class="plugin-header">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm-1 14H5V7h14zM7.5 15l3-4-3-4v8zm5 0h3v-2h-3v2z"/></svg>
+                    【骰子消息发送】
+                </h4>
+                <ul>
+                    <li>发送纯文本: <code class="code-inline">/text &lt;文本&gt;</code></li>
+                    <li>发送表情: <code class="code-inline">/face &lt;ID&gt; &lt;数量&gt;</code></li>
+                    <li>发送骰子表情: <code class="code-inline">/dice</code> (或 <code>骰子</code>)</li>
+                    <li>发送猜拳表情: <code class="code-inline">/rps (石头/剪刀/布)</code></li>
+                    <li>@用户: <code class="code-inline">/at QQ</code> (或 <code>@某人</code>, <code>all</code>)</li>
+                    <li>推荐联系人: <code class="code-inline">/contact 群号</code> (或 <code>@群友</code>, <code>@QQ号</code>)</li>
+                    <li>发送音乐: <code class="code-inline">/music &lt;平台&gt; &lt;ID&gt;</code></li>
+                    <li>发送Markdown消息: <code class="code-inline">/markdown</code> (或 <code>/md</code>)</li>
+                    <li>发送合并转发节点: <code class="code-inline">/node 标题 内容</code> (需引用消息)</li>
+                    <li>转发消息: <code class="code-inline">/forward</code> (或 <code>/转发</code>) (需引用消息)</li>
+                </ul>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        function openTab(evt, tabName) {
+            const tabContents = document.querySelectorAll(".tab-content");
+            tabContents.forEach(tab => tab.style.display = "none");
+
+            const tabLinks = document.querySelectorAll(".tab-link");
+            tabLinks.forEach(link => link.classList.remove("active"));
+
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.classList.add("active");
+        }
+
+        // 默认打开第一个标签页
+        document.getElementById("defaultOpen").click();
+    </script>
+
+</body>
+</html>
