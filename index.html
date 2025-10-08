@@ -268,6 +268,47 @@
         .notice strong {
             color: white;
         }
+
+        /* --- 折叠区域样式 --- */
+        .collapsible-section {
+            background-color: #141922;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            overflow: hidden;
+        }
+        .collapsible-section summary {
+            padding: 1rem;
+            font-weight: 700;
+            color: var(--text-color);
+            cursor: pointer;
+            outline: none;
+            display: block;
+            position: relative;
+            transition: background-color 0.2s ease;
+        }
+        .collapsible-section summary::marker {
+            color: var(--primary-color);
+        }
+        .collapsible-section summary:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        .command-list {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            margin: 0;
+            list-style-type: none;
+            color: var(--text-muted-color);
+        }
+        .command-list li {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+        .command-list li:last-child {
+            margin-bottom: 0;
+        }
+        .command-list .code-inline {
+            margin-right: 0.75em;
+        }
         
         /* --- 移动端响应式优化 --- */
         @media screen and (max-width: 768px) {
@@ -467,7 +508,7 @@
 
         <!-- AstrBot 内容 -->
         <section id="AstrBot" class="tab-content">
-            <h2>AstrBot (v4.2.3)</h2>
+            <h2>AstrBot (v4.2.1)</h2>
 
             <div class="plugin-card" id="plugin-ai">
                 <h4 class="plugin-header">
@@ -476,7 +517,7 @@
                 </h4>
                 <p>自搭建渠道，比较稳定。</p>
                 <ul>
-                    <li>模型：<code class="code-inline">gemini-2.5-pro-nothinking</code></li>
+                    <li>模型：<code class="code-inline">gemini-2.5-flash-preview-09-2025-thinking</code></li>
                     <li>在私聊中发送消息会直接回复。</li>
                     <li>在群聊中通过 <code class="code-inline">@骰子</code>, <code class="code-inline">引用骰子消息</code>, 发送 <code class="code-inline">/</code>, 或发送 <code class="code-inline">/&lt;错误的指令&gt;</code> 均可触发AI回复。</li>
                 </ul>
@@ -576,20 +617,59 @@
                 <p><strong>使用次数：</strong>每日可通过 <code class="code-inline">/手办化签到</code> 获得2次使用次数。使用 <code class="code-inline">/手办化查询次数</code> 可查询个人及群聊的剩余次数。指令会优先消耗群聊共享次数。</p>
                 <p><strong>格式范例：</strong> <code class="code-inline">/&lt;改图类型&gt;</code></p>
                 
-<h5 style="margin-top: 1rem; color: var(--text-color);">可用改图类型</h5>
-                <div class="api-grid">
-                    <span class="code-inline">手办化</span>
-                    <span class="code-inline">Q版化</span>
-                    <span class="code-inline">痛车化</span>
-                    <span class="code-inline">鬼图</span>
-                </div>
                 <h5 style="margin-top: 1.5rem; color: var(--text-color);">功能指令</h5>
                 <ul>
                     <li><code class="code-inline">/手办化签到</code> - 每日签到，获得2次使用次数。</li>
                     <li><code class="code-inline">/手办化查询次数</code> - 查询个人及群聊的剩余次数。</li>
                 </ul>
 
-                <h5 style="margin-top: 1rem; color: var(--text-color);">改图指令</h5>
+                <details class="collapsible-section">
+                    <summary>改图指令 (点击展开/折叠)</summary>
+                    <ul class="command-list">
+                        <li><code class="code-inline">手办化</code> - 生成角色的手办造型，偏向立体模型展示</li>
+                        <li><code class="code-inline">手办化2</code> - 生成另一种风格的手办造型，可能是细节或比例的不同</li>
+                        <li><code class="code-inline">手办化3</code> - 生成不同版本的手办展示，更偏系列感</li>
+                        <li><code class="code-inline">手办化4</code> - 生成手办化第四种风格，可能是更精致或特殊造型</li>
+                        <li><code class="code-inline">手办化5</code> - 生成另一种改良版手办造型</li>
+                        <li><code class="code-inline">手办化6</code> - 生成手办化的第六种衍生风格</li>
+                        <li><code class="code-inline">Q版化</code> - 生成Q版（可爱简化比例）的角色形象</li>
+                        <li><code class="code-inline">痛屋化</code> - 生成痛屋（贴满角色元素装饰的房间）场景</li>
+                        <li><code class="code-inline">痛屋化2</code> - 生成改良版痛屋场景，更丰富或现代感</li>
+                        <li><code class="code-inline">痛车化</code> - 生成痛车（贴有角色图案的车辆）造型</li>
+                        <li><code class="code-inline">cos化</code> - 生成角色cosplay化的照片风格</li>
+                        <li><code class="code-inline">cos自拍</code> - 生成角色自拍风格的cos照片</li>
+                        <li><code class="code-inline">孤独的我</code> - 生成孤独、滑稽或小丑化的意境图</li>
+                        <li><code class="code-inline">第三视角</code> - 生成第三人称视角场景，看起来像他人在看角色</li>
+                        <li><code class="code-inline">鬼图</code> - 生成灵异鬼图风格照片，带恐怖氛围</li>
+                        <li><code class="code-inline">第一视角</code> - 生成第一人称视角场景，沉浸感强</li>
+                        <li><code class="code-inline">贴纸化</code> - 生成贴纸风格的小图，方便做表情或周边</li>
+                        <li><code class="code-inline">玉足</code> - 生成角色玉足相关的画面或细节</li>
+                        <li><code class="code-inline">fumo化</code> - 生成毛绒玩偶（fumo）风格角色</li>
+                        <li><code class="code-inline">cos相遇</code> - 生成两位cos角色相遇的场景</li>
+                        <li><code class="code-inline">三视图</code> - 生成角色三视图（正面、侧面、背面）</li>
+                        <li><code class="code-inline">穿搭拆解</code> - 生成角色服装穿搭的详细拆解图</li>
+                        <li><code class="code-inline">拆解图</code> - 生成模型拆解或零件展示图</li>
+                        <li><code class="code-inline">角色界面</code> - 生成类似游戏中角色信息界面的画面</li>
+                        <li><code class="code-inline">角色设定</code> - 生成角色设定图，包含全身、武器、细节等</li>
+                        <li><code class="code-inline">3D打印</code> - 生成适合3D打印的模型预览图</li>
+                        <li><code class="code-inline">微型化</code> - 生成微缩模型、小比例角色形象</li>
+                        <li><code class="code-inline">挂件化</code> - 生成挂件、钥匙扣风格的角色造型</li>
+                        <li><code class="code-inline">姿势表</code> - 生成角色姿势参考表，多种动作合集</li>
+                        <li><code class="code-inline">高清修复</code> - 对画面进行高清化、细节修复</li>
+                        <li><code class="code-inline">人物转身</code> - 生成人物转身动作的连续画面</li>
+                        <li><code class="code-inline">绘画四宫格</code> - 生成四宫格绘画对比图或进度展示</li>
+                        <li><code class="code-inline">发型九宫格</code> - 生成九种不同发型的对比图</li>
+                        <li><code class="code-inline">头像九宫格</code> - 生成九个不同风格的头像合集</li>
+                        <li><code class="code-inline">表情九宫格</code> - 生成角色九种不同表情合集</li>
+                        <li><code class="code-inline">多机位</code> - 生成多机位拍摄的场景视角合集</li>
+                        <li><code class="code-inline">电影分镜</code> - 生成电影风格的分镜图</li>
+                        <li><code class="code-inline">动漫分镜</code> - 生成动漫风格的分镜图</li>
+                        <li><code class="code-inline">真人化</code> - 生成角色的真人化形象（真实感较强）</li>
+                        <li><code class="code-inline">真人化2</code> - 生成另一种风格的真人化形象</li>
+                        <li><code class="code-inline">半真人</code> - 生成半写实半动漫的混合风格</li>
+                        <li><code class="code-inline">半融合</code> - 生成角色与其他元素融合的半融合风格</li>
+                    </ul>
+                </details>
             </div>
             <div class="plugin-card" id="plugin-ccb">
                 <h4 class="plugin-header">
