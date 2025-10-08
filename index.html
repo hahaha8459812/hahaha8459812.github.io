@@ -327,7 +327,7 @@
             <button class="tab-link" onclick="openTab(event, 'AstrBot')">AstrBot指令</button>
         </nav>
 
-        <!-- 骰子简介 内容 -->
+<!-- 骰子简介 内容 -->
         <section id="Intro" class="tab-content">
             <h2>骰子简介</h2>
             <div class="plugin-card">
@@ -420,6 +420,17 @@
                     <li>鸽子理由: <code class="code-inline">鸽子理由.gugu</code></li>
                 </ul>
             </div>
+<div class="plugin-card">
+                <h4 class="plugin-header">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5 3h-15A2.5 2.5 0 0 0 2 5.5v13A2.5 2.5 0 0 0 4.5 21h15a2.5 2.5 0 0 0 2.5-2.5v-13A2.5 2.5 0 0 0 19.5 3zM8 6a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm0 4H4V8h4zm10 6H4v-2h14zm0-4H10v-2h8zm0-4H10V8h8z"/></svg>
+                    【氛围渲染】
+                </h4>
+                <p>专为KP/DM设计，在跑团过程中可将指定文本转换为手写体图片发送，用以放出线索或增强特定场景的氛围感。</p>
+                <ul>
+                    <li><strong>指令:</strong> <code class="code-inline">.发送文本 &lt;内容&gt;</code></li>
+                    <li><strong>效果:</strong> 返回一张以手写体书写指定内容的纸张图片。</li>
+                </ul>
+            </div>
 <div class="plugin-card" id="plugin-buckshot-roulette">
                 <h4 class="plugin-header">
                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm4.29-10.29L13 13v4a1 1 0 0 1-2 0v-3.59l3-3a1 1 0 1 1 1.42 1.42zM13 7a1 1 0 1 1-1-1 1 1 0 0 1 1 1z"/></svg>
@@ -456,7 +467,7 @@
 
         <!-- AstrBot 内容 -->
         <section id="AstrBot" class="tab-content">
-            <h2>AstrBot (v4.2.1)</h2>
+            <h2>AstrBot (v4.2.3)</h2>
 
             <div class="plugin-card" id="plugin-ai">
                 <h4 class="plugin-header">
@@ -465,7 +476,7 @@
                 </h4>
                 <p>自搭建渠道，比较稳定。</p>
                 <ul>
-                    <li>模型：<code class="code-inline">gemini-2.5-flash-preview-09-2025-thinking</code></li>
+                    <li>模型：<code class="code-inline">gemini-2.5-pro-nothinking</code></li>
                     <li>在私聊中发送消息会直接回复。</li>
                     <li>在群聊中通过 <code class="code-inline">@骰子</code>, <code class="code-inline">引用骰子消息</code>, 发送 <code class="code-inline">/</code>, 或发送 <code class="code-inline">/&lt;错误的指令&gt;</code> 均可触发AI回复。</li>
                 </ul>
@@ -556,6 +567,30 @@
                 </ul>
             </div>
             
+<div class="plugin-card" id="plugin-multi-image-edit">
+                <h4 class="plugin-header">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM5 19V5h14v14zM8.5 13.5l2.5 3 3.5-4.5 4.5 6H5z"/></svg>
+                    【多功能改图】
+                </h4>
+                <p><strong>使用方法：</strong>使用指令时，消息中需<strong>包含图片</strong>，或<strong>引用一条带有图片的消息</strong>。</p>
+                <p><strong>使用次数：</strong>每日可通过 <code class="code-inline">/手办化签到</code> 获得2次使用次数。使用 <code class="code-inline">/手办化查询次数</code> 可查询个人及群聊的剩余次数。指令会优先消耗群聊共享次数。</p>
+                <p><strong>格式范例：</strong> <code class="code-inline">/&lt;改图类型&gt;</code></p>
+                
+<h5 style="margin-top: 1rem; color: var(--text-color);">可用改图类型</h5>
+                <div class="api-grid">
+                    <span class="code-inline">手办化</span>
+                    <span class="code-inline">Q版化</span>
+                    <span class="code-inline">痛车化</span>
+                    <span class="code-inline">鬼图</span>
+                </div>
+                <h5 style="margin-top: 1.5rem; color: var(--text-color);">功能指令</h5>
+                <ul>
+                    <li><code class="code-inline">/手办化签到</code> - 每日签到，获得2次使用次数。</li>
+                    <li><code class="code-inline">/手办化查询次数</code> - 查询个人及群聊的剩余次数。</li>
+                </ul>
+
+                <h5 style="margin-top: 1rem; color: var(--text-color);">改图指令</h5>
+            </div>
             <div class="plugin-card" id="plugin-ccb">
                 <h4 class="plugin-header">
                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm-2-9a1 1 0 0 1 1-1h2a1 1 0 0 1 0 2h-2a1 1 0 0 1-1-1zm4 2H8a1 1 0 0 1 0-2h4a1 1 0 0 1 0 2zm0 3H8a1 1 0 0 1 0-2h4a1 1 0 0 1 0 2z"/></svg>
