@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SealDice & AstrBot 骰子介绍</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+        <header class="main-header">
+            <h1>SealDice & AstrBot</h1>
+            <p class="subtitle">骰子介绍</p>
+        </header>
+
+        <nav class="tab-nav">
+            <button class="tab-link" data-tab-target="Intro" id="defaultOpen">骰子简介</button>
+            <button class="tab-link" data-tab-target="SealDice">SealDice指令</button>
+            <button class="tab-link" data-tab-target="AstrBot">AstrBot指令</button>
+        </nav>
+
+<!-- 骰子简介 内容 -->
+        <section id="Intro" class="tab-content">
+            <h2>骰子简介</h2>
+            <div class="plugin-card">
+                <h4 class="plugin-header">
+                    <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5 3h-15A2.5 2.5 0 0 0 2 5.5v13A2.5 2.5 0 0 0 4.5 21h15a2.5 2.5 0 0 0 2.5-2.5v-13A2.5 2.5 0 0 0 19.5 3zM8 6a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm0 4H4V8h4zm10 6H4v-2h14zm0-4H10v-2h8zm0-4H10V8h8z"/></svg>
+                    基本信息 & 添加方式
+                </h4>
+                <ul>
+                    <li><strong>骰子QQ：</strong> <code class="code-inline">3382003242</code></li>
+                    <li>可直接添加好友，申请将自动通过。</li>
+                    <li>可拉入非跑团群聊作为群机器人使用。</li>
+                </ul>
+            </div>
+
+            <div class="plugin-card">
+                <h4 class="plugin-header">
+                    <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 10h5l-6 8v-6H7l6-8zM3 3h18v2H3zm0 16h18v2H3z"/></svg>
+                    骰子使用框架
+                </h4>
+                <ul>
+                    <li><strong>AI对话以及部分插件：</strong><code class="code-inline">AstrBot</code></li>
+                    <li><strong>TRPG网骰以及部分插件：</strong><code class="code-inline">SealDice</code></li>
+                </ul>
+            </div>
+    
+            <div class="plugin-card">
+                <h4 class="plugin-header">
+                    <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.38 19.55a1 1 0 0 0 .61-.21l1.43-1.1a8 8 0 1 1 3.25-15.8 1 1 0 0 0-.51 1.9A6 6 0 1 0 12 18a5.92 5.92 0 0 0 4.49-2.15 1 1 0 1 0-1.4-1.42A4 4 0 0 1 12 16a3.91 3.91 0 0 1-2.9-1.22 1 1 0 1 0-1.5 1.33A5.91 5.91 0 0 0 12 18a6 6 0 0 0 5.66-4h-2.33a1 1 0 0 0 0 2h4.5a1 1 0 0 0 1-1V10a1 1 0 0 0-2 0v1.55A10 10 0 0 0 12 2z"/></svg>
+                    自由对话 & 角色扮演
+                </h4>
+                <p>接入语言大模型，可以进行自由对话。默认设定遵循明日方舟干员“黍”的人设。</p>
+            </div>
+
+            <div class="plugin-card">
+                <h4 class="plugin-header">
+                     <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.5a.5.5 0 0 0-1 0V5a.5.5 0 0 0 1 0zM7.05 7.05a.5.5 0 0 0-.7.7l1.76 1.77a.5.5 0 0 0 .7-.7zm9.9 0a.5.5 0 1 0-.7-.7L14.48 8.1a.5.5 0 0 0 .7.7zM12 7a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zM4 11.5a.5.5 0 0 0 0 1h2.5a.5.5 0 0 0 0-1zm13.5 0a.5.5 0 0 0 0 1H20a.5.5 0 0 0 0-1zM8.81 14.48a.5.5 0 1 0-.7.7l1.77 1.76a.5.5 0 0 0 .7-.7zm6.38 0a.5.5 0 0 0-.7.7l1.76 1.77a.5.5 0 1 0 .7-.7zM12 19a.5.5 0 0 0-1 0v2.5a.5.5 0 0 0 1 0z"/></svg>
+                    趣味娱乐插件
+                </h4>
+                <p>内置多种趣味娱乐功能插件，点击下方名称可快速跳转至指令详情：</p>
+                 <div class="api-grid" style="margin-top: 1rem;">
+                    <a href="#plugin-jrys" class="code-inline" data-jump-to-tab="AstrBot" data-jump-to-anchor="plugin-jrys">今日运势</a>
+                    <a href="#plugin-dian-ge" class="code-inline" data-jump-to-tab="AstrBot" data-jump-to-anchor="plugin-dian-ge">点歌</a>
+                    <a href="#plugin-poke" class="code-inline" data-jump-to-tab="AstrBot" data-jump-to-anchor="plugin-poke">戳一戳</a>
+                    <a href="#plugin-qq-card" class="code-inline" data-jump-to-tab="AstrBot" data-jump-to-anchor="plugin-qq-card">QQ信息卡片</a>
+                    <a href="#plugin-roulette" class="code-inline" data-jump-to-tab="AstrBot" data-jump-to-anchor="plugin-roulette">群俄罗斯轮盘</a>
+                    <a href="#plugin-buckshot-roulette" class="code-inline" data-jump-to-tab="SealDice" data-jump-to-anchor="plugin-buckshot-roulette">恶魔轮盘</a>
+                    <a href="#plugin-arknights" class="code-inline" data-jump-to-tab="AstrBot" data-jump-to-anchor="plugin-arknights">明日方舟查询</a>
+                    <a href="#plugin-setu" class="code-inline" data-jump-to-tab="AstrBot" data-jump-to-anchor="plugin-setu">瑟图</a>
+                    <a href="#plugin-multi-image-edit" class="code-inline" data-jump-to-tab="AstrBot" data-jump-to-anchor="plugin-multi-image-edit">多功能改图</a>
+                    <a href="#plugin-ccb" class="code-inline" data-jump-to-tab="AstrBot" data-jump-to-anchor="plugin-ccb">CCB</a>
+                    <a href="#plugin-api" class="code-inline" data-jump-to-tab="AstrBot" data-jump-to-anchor="plugin-api">热门API</a>
+                    <a href="#plugin-msg-send" class="code-inline" data-jump-to-tab="AstrBot" data-jump-to-anchor="plugin-msg-send">骰子消息发送</a>
+                    <a href="#plugin-handwriting" class="code-inline" data-jump-to-tab="SealDice" data-jump-to-anchor="plugin-handwriting">氛围渲染</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SealDice 内容 -->
+        <section id="SealDice" class="tab-content">
+            <h2>SealDice (v1.5.0dev2)</h2>
+            
+            <a href="https://docs.sealdice.com/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; display: block;">
+                <div class="plugin-card">
+                    <h4 class="plugin-header">
+                        <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.5 2.5a.5.5 0 0 0-.5-.5h-18a.5.5 0 0 0-.5.5v18a.5.5 0 0 0 .5.5h18a.5.5 0 0 0 .5-.5zM3 3h18v18H3zm4.5 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm6 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm1.5 4.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-6 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-1.5 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm6 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg>
+                        跑团使用指令
+                    </h4>
+                    <p>请参照SealDice官方使用手册以获取最详细的指令列表。点击即可跳转至sealdice使用手册</p>
+                </div>
+            </a>
+
+            <div class="plugin-card">
+                <h4 class="plugin-header">
+                     <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H4V4h16zM6 10h4v4H6zm6 0h4v4h-4zm-6-4h4v4H6zm6 0h4v4h-4z"/></svg>
+                    牌堆
+                </h4>
+                <ul>
+                    <li>SealDice内置牌堆</li>
+                    <li>coj名场面</li>
+                    <li>我在地下城中发现的东西</li>
+                    <li>随机神莓</li>
+                </ul>
+            </div>
+
+            <div class="plugin-card">
+                <h4 class="plugin-header">
+                    <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zM12 8a4 4 0 1 0 4 4 4 4 0 0 0-4-4zm0 6a2 2 0 1 1 2-2 2 2 0 0 1-2 2z"/></svg>
+                    娱乐指令
+                </h4>
+                <ul>
+                    <li>今日人品: <code class="code-inline">今日人品.jrrp</code></li>
+                    <li>鸽子理由: <code class="code-inline">鸽子理由.gugu</code></li>
+                </ul>
+            </div>
+<div class="plugin-card" id="plugin-handwriting">
+                <h4 class="plugin-header">
+                    <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5 3h-15A2.5 2.5 0 0 0 2 5.5v13A2.5 2.5 0 0 0 4.5 21h15a2.5 2.5 0 0 0 2.5-2.5v-13A2.5 2.5 0 0 0 19.5 3zM8 6a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm0 4H4V8h4zm10 6H4v-2h14zm0-4H10v-2h8zm0-4H10V8h8z"/></svg>
+                    【氛围渲染】
+                </h4>
+                <p>专为KP/DM设计，在跑团过程中可将指定文本转换为手写体图片发送，用以放出线索或增强特定场景的氛围感。</p>
+                <ul>
+                    <li><strong>指令:</strong> <code class="code-inline">仿手写 &lt;内容&gt;</code></li>
+                    <li><strong>效果:</strong> 返回一张以手写体书写指定内容的纸张图片。</li>
+                </ul>
+            </div>
+<div class="plugin-card" id="plugin-buckshot-roulette">
+                <h4 class="plugin-header">
+                    <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm4.29-10.29L13 13v4a1 1 0 0 1-2 0v-3.59l3-3a1 1 0 1 1 1.42 1.42zM13 7a1 1 0 1 1-1-1 1 1 0 0 1 1 1z"/></svg>
+                    【恶魔轮盘】(Buckshot Roulette)
+                </h4>
+                <p>Buckshot Roulette 骰子版 v1.3.3 by Szzrain(QQ:1970978827)。使用 <code class="code-inline">.br help</code> 查看详细说明。</p>
+                <ul>
+                    <li><strong>游戏指令:</strong></li>
+                    <li><code class="code-inline">.br ai</code>: 与AI进行一场游戏。</li>
+                    <li><code class="code-inline">.br play</code> / <code class="code-inline">.br p</code>: 开始PVP游戏。</li>
+                    <li><code class="code-inline">.br ss</code>: 射击自己。</li>
+                    <li><code class="code-inline">.br so</code>: 射击对手。</li>
+                    <li><code class="code-inline">.br exit</code>: 退出游戏。</li>
+                    <li style="margin-top: 0.75rem;"><strong>状态查询:</strong></li>
+                    <li><code class="code-inline">.br item</code>: 查看自己的道具和状态。</li>
+                    <li><code class="code-inline">.br item op</code>: 查看对手的道具和状态。</li>
+                    <li><code class="code-inline">.br 胜率榜</code>: 查看当前群内胜率榜。</li>
+                    <li style="margin-top: 0.75rem;"><strong>道具使用:</strong></li>
+                    <li><code class="code-inline">.br 刀</code>: 下一发子弹造成双倍伤害。</li>
+                    <li><code class="code-inline">.br 啤酒</code>: 退掉下一发子弹。</li>
+                    <li><code class="code-inline">.br 烟</code>: 回复一点血量。</li>
+                    <li><code class="code-inline">.br 药</code>: 50%回复2点血，50%扣1点血。</li>
+                    <li><code class="code-inline">.br 放大镜</code>: 查看下一发子弹。</li>
+                    <li><code class="code-inline">.br 手机</code>: 随机查看一发非首位子弹。</li>
+                    <li><code class="code-inline">.br 逆转器</code>: 互换下一发子弹类型。</li>
+                    <li><code class="code-inline">.br 手铐</code>: 禁锢对手一回合。</li>
+                    <li><code class="code-inline">.br 肾上腺素</code>: 偷取并使用对手一个道具。</li>
+                    <li style="margin-top: 0.75rem;"><strong>管理指令:</strong></li>
+                    <li><code class="code-inline">.br fstop</code>: 强制结束游戏 (需权限)。</li>
+                    <li><code class="code-inline">.br c help</code>: 查看自定义游戏规则。</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- AstrBot 内容 -->
+        <section id="AstrBot" class="tab-content">
+            <h2>AstrBot (v4.2.1)</h2>
+
+            <div class="plugin-card" id="plugin-ai">
+                <h4 class="plugin-header">
+                    <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.38 19.55a1 1 0 0 0 .61-.21l1.43-1.1a8 8 0 1 1 3.25-15.8 1 1 0 0 0-.51 1.9A6 6 0 1 0 12 18a5.92 5.92 0 0 0 4.49-2.15 1 1 0 1 0-1.4-1.42A4 4 0 0 1 12 16a3.91 3.91 0 0 1-2.9-1.22 1 1 0 1 0-1.5 1.33A5.91 5.91 0 0 0 12 18a6 6 0 0 0 5.66-4h-2.33a1 1 0 0 0 0 2h4.5a1 1 0 0 0 1-1V10a1 1 0 0 0-2 0v1.55A10 10 0 0 0 12 2z"/></svg>
+                    AI聊天
+                </h4>
+                <p>自搭建渠道，比较稳定。</p>
+                <ul>
+                    <li>模型：<code class="code-inline">gemini-2.5-pro</code></li>
+                    <li>在私聊中发送消息会直接回复。</li>
+                    <li>在群聊中通过 <code class="code-inline">@骰子</code>, <code class="code-inline">引用骰子消息</code>, 发送 <code class="code-inline">/</code>, 或发送 <code class="code-inline">/&lt;错误的指令&gt;</code> 均可触发AI回复。</li>
+                </ul>
+            </div>
+
+            <div class="notice">
+                <strong>插件指令使用须知：</strong><br>
+                为了防止误激活插件，已启用关键词唤醒。在使用所有插件时，请在指令前加上 <code class="code-inline">/</code> 前缀。
+            </div>
+
+            <div class="plugin-card" id="plugin-jrys">
+                <h4 class="plugin-header">
+                    <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.5a.5.5 0 0 0-1 0V5a.5.5 0 0 0 1 0zM7.05 7.05a.5.5 0 0 0-.7.7l1.76 1.77a.5.5 0 0 0 .7-.7zm9.9 0a.5.5 0 1 0-.7-.7L14.48 8.1a.5.5 0 0 0 .7.7zM12 7a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zM4 11.5a.5.5 0 0 0 0 1h2.5a.5.5 0 0 0 0-1zm13.5 0a.5.5 0 0 0 0 1H20a.5.5 0 0 0 0-1zM8.81 14.48a.5.5 0 1 0-.7.7l1.77 1.76a.5.5 0 0 0 .7-.7zm6.38 0a.5.5 0 0 0-.7.7l1.76 1.77a.5.5 0 1 0 .7-.7zM12 19a.5.5 0 0 0-1 0v2.5a.5.5 0 0 0 1 0z"/></svg>
+                    【今日运势】
+                </h4>
+                <p>生成用户的专属运势图，包含运势、宜忌、吉时等信息。</p>
+                <div class="command-block">用户：/jrys (或 /今日运势, /运势)</div>
+            </div>
+
+            <div class="plugin-card" id="plugin-dian-ge">
+                <h4 class="plugin-header">
+                    <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+                    【点歌】
+                </h4>
+                <p>搜索并点播歌曲。</p>
+                <div class="command-block">用户：/点歌 歌名
+骰子：(返回歌曲列表)
+1. ####
+2. ####
+3. ####
+用户：1
+骰子：[发送序号对应的音乐卡片]</div>
+            </div>
+            
+            <div class="plugin-card" id="plugin-poke">
+                <h4 class="plugin-header">
+                    <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 8a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3zm-4-1a1 1 0 1 0-2 0 1 1 0 0 0 2 0zM8 6a1 1 0 0 0 0 2h8a1 1 0 0 0 0-2zm12 9.49V19a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3.51a4 4 0 0 1 1.4-2.82l.6-.61V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-2.03l.6.61A4 4 0 0 1 20 15.49z"/></svg>
+                    【戳一戳】
+                </h4>
+                <p>让骰子代替你戳一戳指定用户。</p>
+                <div class="command-block">用户：攻击 @用户名</div>
+            </div>
+
+            <div class="plugin-card" id="plugin-qq-card">
+                <h4 class="plugin-header">
+                    <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5 3h-15A2.5 2.5 0 0 0 2 5.5v13A2.5 2.5 0 0 0 4.5 21h15a2.5 2.5 0 0 0 2.5-2.5v-13A2.5 2.5 0 0 0 19.5 3zM8 6a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm0 4H4V8h4zm10 6H4v-2h14zm0-4H10v-2h8zm0-4H10V8h8z"/></svg>
+                    【QQ信息卡片】
+                </h4>
+                <p>获取指定用户的QQ信息卡片，新成员入群时也会自动发送。</p>
+                <div class="command-block">用户：/盒 @用户名 (或 /盒 QQ号)</div>
+            </div>
+
+            <div class="plugin-card" id="plugin-roulette">
+                <h4 class="plugin-header">
+                    <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 2h-9A4.5 4.5 0 0 0 3 6.5V11h18V6.5A4.5 4.5 0 0 0 16.5 2zM6 7a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm3 0a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm3 0a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm3 0a1 1 0 1 1 1-1 1 1 0 0 1-1 1zM3 13v4.5A4.5 4.5 0 0 0 7.5 22h9a4.5 4.5 0 0 0 4.5-4.5V13z"/></svg>
+                    【群俄罗斯轮盘赌】
+                </h4>
+                <ul>
+                    <li><strong>装填子弹:</strong> <code class="code-inline">/装填 [子弹数量]</code> (1-6，默认为1)</li>
+                    <li><strong>开枪:</strong> <code class="code-inline">/开枪</code> (实弹禁言60-3000秒，需管理权限)</li>
+                    <li><strong>走火开关:</strong> <code class="code-inline">/走火开</code> 或 <code class="code-inline">/走火关</code> (群聊中0.5%概率随机走火)</li>
+                    <li><strong>超时机制:</strong> 装填后60秒无操作，游戏自动结束。</li>
+                </ul>
+            </div>
+            
+
+            <div class="plugin-card" id="plugin-arknights">
+                <h4 class="plugin-header">
+                    <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zM12 6l-4 4h3v6h2v-6h3z"/></svg>
+                    【明日方舟信息查询】
+                </h4>
+                <ul>
+                    <li>显示帮助: <code class="code-inline">/arkhelp</code></li>
+                    <li>查询干员信息: <code class="code-inline">/arkgy 娜仁图亚</code></li>
+                    <li>查询其他信息: <code class="code-inline">/arkqt 娜仁图亚的信物</code></li>
+                </ul>
+            </div>
+
+            <div class="plugin-card" id="plugin-setu">
+                <h4 class="plugin-header">
+                    <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM5 19V5h14v14zM8.5 13.5l2.5 3 3.5-4.5 4.5 6H5z"/></svg>
+                    【瑟图】
+                </h4>
+                <p>图源API时好时坏，报错请多次尝试。无R18内容。</p>
+                <ul>
+                    <li>随机图片: <code class="code-inline">setu</code></li>
+                    <li>带标签搜索: <code class="code-inline">setu 标签1,标签2&标签3...</code> (标签无空格, 支持AND和OR)</li>
+                </ul>
+            </div>
+            
+<div class="plugin-card" id="plugin-multi-image-edit">
+                <h4 class="plugin-header">
+                    <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM5 19V5h14v14zM8.5 13.5l2.5 3 3.5-4.5 4.5 6H5z"/></svg>
+                    【多功能改图】
+                </h4>
+                <p><strong>使用方法：</strong>使用指令时，消息中需<strong>包含图片</strong>，或<strong>引用一条带有图片的消息</strong>。</p>
+                <p><strong>使用次数：</strong>每日可通过 <code class="code-inline">/手办化签到</code> 获得2次使用次数。使用 <code class="code-inline">/手办化查询次数</code> 可查询个人及群聊的剩余次数。指令会优先消耗群聊共享次数。</p>
+                <p><strong>格式范例：</strong> <code class="code-inline">/&lt;改图类型&gt;</code></p>
+                
+                <h5 style="margin-top: 1.5rem; color: var(--text-color);">功能指令</h5>
+                <ul>
+                    <li><code class="code-inline">/手办化签到</code> - 每日签到，获得2次使用次数。</li>
+                    <li><code class="code-inline">/手办化查询次数</code> - 查询个人及群聊的剩余次数。</li>
+                </ul>
+
+                <details class="collapsible-section">
+                    <summary>改图指令 (点击展开/折叠)</summary>
+                    <ul class="command-list">
+                        <li><code class="code-inline">手办化</code> - 生成角色的手办造型，偏向立体模型展示</li>
+                        <li><code class="code-inline">手办化2</code> - 生成另一种风格的手办造型，可能是细节或比例的不同</li>
+                        <li><code class="code-inline">手办化3</code> - 生成不同版本的手办展示，更偏系列感</li>
+                        <li><code class="code-inline">手办化4</code> - 生成手办化第四种风格，可能是更精致或特殊造型</li>
+                        <li><code class="code-inline">手办化5</code> - 生成另一种改良版手办造型</li>
+                        <li><code class="code-inline">手办化6</code> - 生成手办化的第六种衍生风格</li>
+                        <li><code class="code-inline">Q版化</code> - 生成Q版（可爱简化比例）的角色形象</li>
+                        <li><code class="code-inline">痛屋化</code> - 生成痛屋（贴满角色元素装饰的房间）场景</li>
+                        <li><code class="code-inline">痛屋化2</code> - 生成改良版痛屋场景，更丰富或现代感</li>
+                        <li><code class="code-inline">痛车化</code> - 生成痛车（贴有角色图案的车辆）造型</li>
+                        <li><code class="code-inline">cos化</code> - 生成角色cosplay化的照片风格</li>
+                        <li><code class="code-inline">cos自拍</code> - 生成角色自拍风格的cos照片</li>
+                        <li><code class="code-inline">孤独的我</code> - 生成孤独、滑稽或小丑化的意境图</li>
+                        <li><code class="code-inline">第三视角</code> - 生成第三人称视角场景，看起来像他人在看角色</li>
+                        <li><code class="code-inline">鬼图</code> - 生成灵异鬼图风格照片，带恐怖氛围</li>
+                        <li><code class="code-inline">第一视角</code> - 生成第一人称视角场景，沉浸感强</li>
+                        <li><code class="code-inline">贴纸化</code> - 生成贴纸风格的小图，方便做表情或周边</li>
+                        <li><code class="code-inline">玉足</code> - 生成角色玉足相关的画面或细节</li>
+                        <li><code class="code-inline">fumo化</code> - 生成毛绒玩偶（fumo）风格角色</li>
+                        <li><code class="code-inline">cos相遇</code> - 生成两位cos角色相遇的场景</li>
+                        <li><code class="code-inline">三视图</code> - 生成角色三视图（正面、侧面、背面）</li>
+                        <li><code class="code-inline">穿搭拆解</code> - 生成角色服装穿搭的详细拆解图</li>
+                        <li><code class="code-inline">拆解图</code> - 生成模型拆解或零件展示图</li>
+                        <li><code class="code-inline">角色界面</code> - 生成类似游戏中角色信息界面的画面</li>
+                        <li><code class="code-inline">角色设定</code> - 生成角色设定图，包含全身、武器、细节等</li>
+                        <li><code class="code-inline">3D打印</code> - 生成适合3D打印的模型预览图</li>
+                        <li><code class="code-inline">微型化</code> - 生成微缩模型、小比例角色形象</li>
+                        <li><code class="code-inline">挂件化</code> - 生成挂件、钥匙扣风格的角色造型</li>
+                        <li><code class="code-inline">姿势表</code> - 生成角色姿势参考表，多种动作合集</li>
+                        <li><code class="code-inline">高清修复</code> - 对画面进行高清化、细节修复</li>
+                        <li><code class="code-inline">人物转身</code> - 生成人物转身动作的连续画面</li>
+                        <li><code class="code-inline">绘画四宫格</code> - 生成四宫格绘画对比图或进度展示</li>
+                        <li><code class="code-inline">发型九宫格</code> - 生成九种不同发型的对比图</li>
+                        <li><code class="code-inline">头像九宫格</code> - 生成九个不同风格的头像合集</li>
+                        <li><code class="code-inline">表情九宫格</code> - 生成角色九种不同表情合集</li>
+                        <li><code class="code-inline">多机位</code> - 生成多机位拍摄的场景视角合集</li>
+                        <li><code class="code-inline">电影分镜</code> - 生成电影风格的分镜图</li>
+                        <li><code class="code-inline">动漫分镜</code> - 生成动漫风格的分镜图</li>
+                        <li><code class="code-inline">真人化</code> - 生成角色的真人化形象（真实感较强）</li>
+                        <li><code class="code-inline">真人化2</code> - 生成另一种风格的真人化形象</li>
+                        <li><code class="code-inline">半真人</code> - 生成半写实半动漫的混合风格</li>
+                        <li><code class="code-inline">半融合</code> - 生成角色与其他元素融合的半融合风格</li>
+                    </ul>
+                </details>
+            </div>
+            <div class="plugin-card" id="plugin-ccb">
+                <h4 class="plugin-header">
+                    <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm-2-9a1 1 0 0 1 1-1h2a1 1 0 0 1 0 2h-2a1 1 0 0 1-1-1zm4 2H8a1 1 0 0 1 0-2h4a1 1 0 0 1 0 2zm0 3H8a1 1 0 0 1 0-2h4a1 1 0 0 1 0 2z"/></svg>
+                    【CCB】
+                </h4>
+                <ul>
+                    <li>进行CCB: <code class="code-inline">/ccb @用户名</code></li>
+                    <li>次数排行: <code class="code-inline">/ccbtop</code></li>
+                    <li>注入量排行: <code class="code-inline">/ccbvol</code></li>
+                    <li>单次最大量排行: <code class="code-inline">/ccbmax</code></li>
+                    <li>查询信息: <code class="code-inline">/ccbinfo @用户名</code> (不@则查自己)</li>
+                </ul>
+            </div>
+
+            <div class="plugin-card" id="plugin-api">
+                <h4 class="plugin-header">
+                    <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 10h5l-6 8v-6H7l6-8zM3 3h18v2H3zm0 16h18v2H3z"/></svg>
+                    【热门API聚合】
+                </h4>
+                <p>使用 <code class="code-inline">/API名称</code> 调用，部分需要后缀。例: <code class="code-inline">/中草药 何首乌</code></p>
+                <details class="collapsible-section" style="margin-top: 1rem;">
+                    <summary>API 列表 (点击展开/折叠)</summary>
+                    <div style="padding: 1rem 1.5rem 1.5rem; margin: 0;">
+                        <div class="api-category">
+                            <h5>【text】52个：</h5>
+                            <div class="api-grid">
+                                <span class="code-inline">讲讲社会</span> <span class="code-inline">讲讲人生</span> <span class="code-inline">讲个笑话</span> <span class="code-inline">讲讲爱情</span> <span class="code-inline">讲讲温柔</span> <span class="code-inline">讲讲摆烂</span> <span class="code-inline">来句古诗</span> <span class="code-inline">来碗毒鸡汤</span> <span class="code-inline">讲讲舔狗</span> <span class="code-inline">来句情话</span> <span class="code-inline">讲讲伤感</span> <span class="code-inline">来句骚话</span> <span class="code-inline">讲讲英汉</span> <span class="code-inline">电影票房</span> <span class="code-inline">脑筋急弯</span> <span class="code-inline">随机谜语</span> <span class="code-inline">随机姓名</span> <span class="code-inline">B站更新</span> <span class="code-inline">光遇任务</span> <span class="code-inline">来点段子</span> <span class="code-inline">兽语加密</span> <span class="code-inline">兽语解密</span> <span class="code-inline">看看黄历</span> <span class="code-inline">二次元形象</span> <span class="code-inline">动漫一言</span> <span class="code-inline">香烟价格</span> <span class="code-inline">人品运势</span> <span class="code-inline">KFC</span> <span class="code-inline">QQ签名</span> <span class="code-inline">嘲讽</span> <span class="code-inline">晚安</span> <span class="code-inline">胡乱描述</span> <span class="code-inline">Linux命令</span> <span class="code-inline">身份证查询</span> <span class="code-inline">高校查询</span> <span class="code-inline">古诗文查询</span> <span class="code-inline">今天吃什么</span> <span class="code-inline">黄金价格</span> <span class="code-inline">人物年轮</span> <span class="code-inline">车辆查询</span> <span class="code-inline">起个网名</span> <span class="code-inline">号码归属地</span> <span class="code-inline">挑战古诗词</span> <span class="code-inline">显卡排行榜</span> <span class="code-inline">垃圾分类</span> <span class="code-inline">刑法</span> <span class="code-inline">来碗鸡汤</span> <span class="code-inline">发病</span> <span class="code-inline">来句诗</span> <span class="code-inline">文案</span> <span class="code-inline">来篇文章</span> <span class="code-inline">中草药</span>
+                            </div>
+                        </div>
+                        <div class="api-category">
+                            <h5>【image】45个：</h5>
+                            <div class="api-grid">
+                                <span class="code-inline">电脑壁纸</span> <span class="code-inline">来个头像</span> <span class="code-inline">手机壁纸</span> <span class="code-inline">读世界</span> <span class="code-inline">来份早报</span> <span class="code-inline">生成二维码</span> <span class="code-inline">测CP</span> <span class="code-inline">看看风景</span> <span class="code-inline">随便来点</span> <span class="code-inline">来点龙图</span> <span class="code-inline">来点cos</span> <span class="code-inline">来点二次元</span> <span class="code-inline">海贼王</span> <span class="code-inline">看看猫猫</span> <span class="code-inline">doro结局</span> <span class="code-inline">晚安</span> <span class="code-inline">来点腹肌</span> <span class="code-inline">原神</span> <span class="code-inline">来点坤图</span> <span class="code-inline">看看腿</span> <span class="code-inline">来点帅哥</span> <span class="code-inline">超甜辣妹</span> <span class="code-inline">每日一签</span> <span class="code-inline">竖屏动漫壁纸</span> <span class="code-inline">奥运会</span> <span class="code-inline">光遇日历</span> <span class="code-inline">斗图</span> <span class="code-inline">热榜</span> <span class="code-inline">星座运势</span> <span class="code-inline">小动物</span> <span class="code-inline">三坑少女</span> <span class="code-inline">画画</span> <span class="code-inline">LOL查询</span> <span class="code-inline">看看妞</span> <span class="code-inline">bing图</span> <span class="code-inline">随机上色</span> <span class="code-inline">原神黄历</span> <span class="code-inline">艺术字</span> <span class="code-inline">搜图</span> <span class="code-inline">每日日报</span> <span class="code-inline">搜表情</span> <span class="code-inline">搜菜谱</span> <span class="code-inline">高清壁纸</span> <span class="code-inline">今日运势</span> <span class="code-inline">日历</span>
+                            </div>
+                        </div>
+                        <div class="api-category">
+                            <h5>【video】61个：</h5>
+                            <div class="api-grid">
+                                <span class="code-inline">看看女大</span> <span class="code-inline">看看骚的</span> <span class="code-inline">看看玉足</span> <span class="code-inline">看看漫画</span> <span class="code-inline">看看emo</span> <span class="code-inline">看看动漫</span> <span class="code-inline">看看治愈</span> <span class="code-inline">看看帅哥</span> <span class="code-inline">来点色色</span> <span class="code-inline">女高中生</span> <span class="code-inline">女大</span> <span class="code-inline">欲梦</span> <span class="code-inline">看看黑丝</span> <span class="code-inline">看看白丝</span> <span class="code-inline">高质量小姐姐</span> <span class="code-inline">深刻推荐</span> <span class="code-inline">看看小葫芦</span> <span class="code-inline">看看jk</span> <span class="code-inline">看看久喵</span> <span class="code-inline">仙桃猫</span> <span class="code-inline">看看公主</span> <span class="code-inline">看看心情</span> <span class="code-inline">看看小雪</span> <span class="code-inline">看看红鸾</span> <span class="code-inline">看看狼宝</span> <span class="code-inline">看看雪梨</span> <span class="code-inline">看看兔兔</span> <span class="code-inline">拜托前辈</span> <span class="code-inline">看看穿搭</span> <span class="code-inline">鞠婧祎</span> <span class="code-inline">音乐视频</span> <span class="code-inline">周扬青</span> <span class="code-inline">周清欢</span> <span class="code-inline">潇潇</span> <span class="code-inline">看看甜妹</span> <span class="code-inline">看看清纯</span> <span class="code-inline">看看萌娃</span> <span class="code-inline">看看慢摇</span> <span class="code-inline">看看COS</span> <span class="code-inline">看看余震</span> <span class="code-inline">看看欲梦</span> <span class="code-inline">看看萝莉</span> <span class="code-inline">看看晴天</span> <span class="code-inline">光剑变装</span> <span class="code-inline">动漫变装</span> <span class="code-inline">完美身材</span> <span class="code-inline">火车摇</span> <span class="code-inline">蹲下变装</span> <span class="code-inline">看看吊带</span> <span class="code-inline">擦玻璃</span> <span class="code-inline">背影变装</span> <span class="code-inline">安慕希</span> <span class="code-inline">看看微胖</span> <span class="code-inline">硬气卡点</span> <span class="code-inline">黑白双煞</span> <span class="code-inline">猫系女友</span> <span class="code-inline">看看女仆</span> <span class="code-inline">又纯又欲</span> <span class="code-inline">看看甩裙</span> <span class="code-inline">看看腹肌</span> <span class="code-inline">看看原神</span>
+                            </div>
+                        </div>
+                        <div class="api-category">
+                            <h5>【audio】8个：</h5>
+                            <div class="api-grid">
+                                <span class="code-inline">每日听力</span> <span class="code-inline">逆天语音</span> <span class="code-inline">坤叫</span> <span class="code-inline">报时</span> <span class="code-inline">王者语音</span> <span class="code-inline">喘息</span> <span class="code-inline">原神语音</span> <span class="code-inline">御姐撒娇</span>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <div class="plugin-card" id="plugin-msg-send">
+                <h4 class="plugin-header">
+                    <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm-1 14H5V7h14zM7.5 15l3-4-3-4v8zm5 0h3v-2h-3v2z"/></svg>
+                    【骰子消息发送】
+                </h4>
+                <ul>
+                    <li>发送纯文本: <code class="code-inline">/text &lt;文本&gt;</code></li>
+                    <li>发送表情: <code class="code-inline">/face &lt;ID&gt; &lt;数量&gt;</code></li>
+                    <li>发送骰子表情: <code class="code-inline">/dice</code> (或 <code>骰子</code>)</li>
+                    <li>发送猜拳表情: <code class="code-inline">/rps (石头/剪刀/布)</code></li>
+                    <li>@用户: <code class="code-inline">/at QQ</code> (或 <code>@某人</code>, <code>all</code>)</li>
+                    <li>推荐联系人: <code class="code-inline">/contact 群号</code> (或 <code>@群友</code>, <code>@QQ号</code>)</li>
+                    <li>发送音乐: <code class="code-inline">/music &lt;平台&gt; &lt;ID&gt;</code></li>
+                    <li>发送Markdown消息: <code class="code-inline">/markdown</code> (或 <code>/md</code>)</li>
+                    <li>发送合并转发节点: <code class="code-inline">/node 标题 内容</code> (需引用消息)</li>
+                    <li>转发消息: <code class="code-inline">/forward</code> (或 <code>/转发</code>) (需引用消息)</li>
+                </ul>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
