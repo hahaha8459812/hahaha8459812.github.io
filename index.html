@@ -74,9 +74,21 @@
                     <a href="#plugin-setu" class="code-inline" data-jump-to-tab="AstrBot" data-jump-to-anchor="plugin-setu">瑟图</a>
                     <a href="#plugin-multi-image-edit" class="code-inline" data-jump-to-tab="AstrBot" data-jump-to-anchor="plugin-multi-image-edit">多功能改图</a>
                     <a href="#plugin-ccb" class="code-inline" data-jump-to-tab="AstrBot" data-jump-to-anchor="plugin-ccb">CCB</a>
-                    <a href="#plugin-api" class="code-inline" data-jump-to-tab="AstrBot" data-jump-to-anchor="plugin-api">热门API</a>
                     <a href="#plugin-msg-send" class="code-inline" data-jump-to-tab="AstrBot" data-jump-to-anchor="plugin-msg-send">骰子消息发送</a>
                     <a href="#plugin-handwriting" class="code-inline" data-jump-to-tab="SealDice" data-jump-to-anchor="plugin-handwriting">氛围渲染</a>
+                </div>
+            </div>
+            <div class="plugin-card" id="plugin-basic">
+                <h4 class="plugin-header">
+                    <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5 3h-15A2.5 2.5 0 0 0 2 5.5v13A2.5 2.5 0 0 0 4.5 21h15a2.5 2.5 0 0 0 2.5-2.5v-13A2.5 2.5 0 0 0 19.5 3zM8 6a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm0 4H4V8h4zm10 6H4v-2h14zm0-4H10v-2h8zm0-4H10V8h8z"/></svg>
+                    基本指令
+                </h4>
+                <ul>
+                    <li><strong>获取菜单:</strong> <code class="code-inline">.help</code> - 显示所有可用功能指令。</li>
+                    <li><strong>退群指令:</strong> <code class="code-inline">.bot bye</code> 或 <code class="code-inline">.dismiss</code> - 让骰子安全退出当前群聊。</li>
+                </ul>
+                <div class="notice" style="margin-top: 1rem; border-left-color: #e53e3e; background-color: rgba(229, 62, 62, 0.1); color: #fc8181;">
+                    <strong>重要提示：</strong>请务必使用退群指令让bot离开。<strong>直接踢出群聊</strong>会导致执行该操作的群主或管理员被永久加入黑名单，无法再次邀请。
                 </div>
             </div>
         </section>
@@ -125,7 +137,7 @@
                 </h4>
                 <p>专为KP/DM设计，在跑团过程中可将指定文本转换为手写体图片发送，用以放出线索或增强特定场景的氛围感。</p>
                 <ul>
-                    <li><strong>指令:</strong> <code class="code-inline">仿手写 &lt;内容&gt;</code></li>
+                    <li><strong>指令:</strong> <code class="code-inline">仿手写 <内容></code></li>
                     <li><strong>效果:</strong> 返回一张以手写体书写指定内容的纸张图片。</li>
                 </ul>
             </div>
@@ -176,7 +188,7 @@
                 <ul>
                     <li>模型：<code class="code-inline">gemini-2.5-pro</code></li>
                     <li>在私聊中发送消息会直接回复。</li>
-                    <li>在群聊中通过 <code class="code-inline">@骰子</code>, <code class="code-inline">引用骰子消息</code>, 发送 <code class="code-inline">/</code>, 或发送 <code class="code-inline">/&lt;错误的指令&gt;</code> 均可触发AI回复。</li>
+                    <li>在群聊中通过 <code class="code-inline">@骰子</code>, <code class="code-inline">引用骰子消息</code>, 发送 <code class="code-inline">/</code>, 或发送 <code class="code-inline">/<错误的指令></code> 均可触发AI回复。</li>
                 </ul>
             </div>
 
@@ -272,7 +284,7 @@
                 </h4>
                 <p><strong>使用方法：</strong>使用指令时，消息中需<strong>包含图片</strong>，或<strong>引用一条带有图片的消息</strong>。</p>
                 <p><strong>使用次数：</strong>每日可通过 <code class="code-inline">/手办化签到</code> 获得2次使用次数。使用 <code class="code-inline">/手办化查询次数</code> 可查询个人及群聊的剩余次数。指令会优先消耗群聊共享次数。</p>
-                <p><strong>格式范例：</strong> <code class="code-inline">/&lt;改图类型&gt;</code></p>
+                <p><strong>格式范例：</strong> <code class="code-inline">/<改图类型></code></p>
                 
                 <h5 style="margin-top: 1.5rem; color: var(--text-color);">功能指令</h5>
                 <ul>
@@ -342,56 +354,19 @@
                 </ul>
             </div>
 
-            <div class="plugin-card" id="plugin-api">
-                <h4 class="plugin-header">
-                    <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 10h5l-6 8v-6H7l6-8zM3 3h18v2H3zm0 16h18v2H3z"/></svg>
-                    【热门API聚合】
-                </h4>
-                <p>使用 <code class="code-inline">/API名称</code> 调用，部分需要后缀。例: <code class="code-inline">/中草药 何首乌</code></p>
-                <details class="collapsible-section" style="margin-top: 1rem;">
-                    <summary>API 列表 (点击展开/折叠)</summary>
-                    <div style="padding: 1rem 1.5rem 1.5rem; margin: 0;">
-                        <div class="api-category">
-                            <h5>【text】52个：</h5>
-                            <div class="api-grid">
-                                <span class="code-inline">讲讲社会</span> <span class="code-inline">讲讲人生</span> <span class="code-inline">讲个笑话</span> <span class="code-inline">讲讲爱情</span> <span class="code-inline">讲讲温柔</span> <span class="code-inline">讲讲摆烂</span> <span class="code-inline">来句古诗</span> <span class="code-inline">来碗毒鸡汤</span> <span class="code-inline">讲讲舔狗</span> <span class="code-inline">来句情话</span> <span class="code-inline">讲讲伤感</span> <span class="code-inline">来句骚话</span> <span class="code-inline">讲讲英汉</span> <span class="code-inline">电影票房</span> <span class="code-inline">脑筋急弯</span> <span class="code-inline">随机谜语</span> <span class="code-inline">随机姓名</span> <span class="code-inline">B站更新</span> <span class="code-inline">光遇任务</span> <span class="code-inline">来点段子</span> <span class="code-inline">兽语加密</span> <span class="code-inline">兽语解密</span> <span class="code-inline">看看黄历</span> <span class="code-inline">二次元形象</span> <span class="code-inline">动漫一言</span> <span class="code-inline">香烟价格</span> <span class="code-inline">人品运势</span> <span class="code-inline">KFC</span> <span class="code-inline">QQ签名</span> <span class="code-inline">嘲讽</span> <span class="code-inline">晚安</span> <span class="code-inline">胡乱描述</span> <span class="code-inline">Linux命令</span> <span class="code-inline">身份证查询</span> <span class="code-inline">高校查询</span> <span class="code-inline">古诗文查询</span> <span class="code-inline">今天吃什么</span> <span class="code-inline">黄金价格</span> <span class="code-inline">人物年轮</span> <span class="code-inline">车辆查询</span> <span class="code-inline">起个网名</span> <span class="code-inline">号码归属地</span> <span class="code-inline">挑战古诗词</span> <span class="code-inline">显卡排行榜</span> <span class="code-inline">垃圾分类</span> <span class="code-inline">刑法</span> <span class="code-inline">来碗鸡汤</span> <span class="code-inline">发病</span> <span class="code-inline">来句诗</span> <span class="code-inline">文案</span> <span class="code-inline">来篇文章</span> <span class="code-inline">中草药</span>
-                            </div>
-                        </div>
-                        <div class="api-category">
-                            <h5>【image】45个：</h5>
-                            <div class="api-grid">
-                                <span class="code-inline">电脑壁纸</span> <span class="code-inline">来个头像</span> <span class="code-inline">手机壁纸</span> <span class="code-inline">读世界</span> <span class="code-inline">来份早报</span> <span class="code-inline">生成二维码</span> <span class="code-inline">测CP</span> <span class="code-inline">看看风景</span> <span class="code-inline">随便来点</span> <span class="code-inline">来点龙图</span> <span class="code-inline">来点cos</span> <span class="code-inline">来点二次元</span> <span class="code-inline">海贼王</span> <span class="code-inline">看看猫猫</span> <span class="code-inline">doro结局</span> <span class="code-inline">晚安</span> <span class="code-inline">来点腹肌</span> <span class="code-inline">原神</span> <span class="code-inline">来点坤图</span> <span class="code-inline">看看腿</span> <span class="code-inline">来点帅哥</span> <span class="code-inline">超甜辣妹</span> <span class="code-inline">每日一签</span> <span class="code-inline">竖屏动漫壁纸</span> <span class="code-inline">奥运会</span> <span class="code-inline">光遇日历</span> <span class="code-inline">斗图</span> <span class="code-inline">热榜</span> <span class="code-inline">星座运势</span> <span class="code-inline">小动物</span> <span class="code-inline">三坑少女</span> <span class="code-inline">画画</span> <span class="code-inline">LOL查询</span> <span class="code-inline">看看妞</span> <span class="code-inline">bing图</span> <span class="code-inline">随机上色</span> <span class="code-inline">原神黄历</span> <span class="code-inline">艺术字</span> <span class="code-inline">搜图</span> <span class="code-inline">每日日报</span> <span class="code-inline">搜表情</span> <span class="code-inline">搜菜谱</span> <span class="code-inline">高清壁纸</span> <span class="code-inline">今日运势</span> <span class="code-inline">日历</span>
-                            </div>
-                        </div>
-                        <div class="api-category">
-                            <h5>【video】61个：</h5>
-                            <div class="api-grid">
-                                <span class="code-inline">看看女大</span> <span class="code-inline">看看骚的</span> <span class="code-inline">看看玉足</span> <span class="code-inline">看看漫画</span> <span class="code-inline">看看emo</span> <span class="code-inline">看看动漫</span> <span class="code-inline">看看治愈</span> <span class="code-inline">看看帅哥</span> <span class="code-inline">来点色色</span> <span class="code-inline">女高中生</span> <span class="code-inline">女大</span> <span class="code-inline">欲梦</span> <span class="code-inline">看看黑丝</span> <span class="code-inline">看看白丝</span> <span class="code-inline">高质量小姐姐</span> <span class="code-inline">深刻推荐</span> <span class="code-inline">看看小葫芦</span> <span class="code-inline">看看jk</span> <span class="code-inline">看看久喵</span> <span class="code-inline">仙桃猫</span> <span class="code-inline">看看公主</span> <span class="code-inline">看看心情</span> <span class="code-inline">看看小雪</span> <span class="code-inline">看看红鸾</span> <span class="code-inline">看看狼宝</span> <span class="code-inline">看看雪梨</span> <span class="code-inline">看看兔兔</span> <span class="code-inline">拜托前辈</span> <span class="code-inline">看看穿搭</span> <span class="code-inline">鞠婧祎</span> <span class="code-inline">音乐视频</span> <span class="code-inline">周扬青</span> <span class="code-inline">周清欢</span> <span class="code-inline">潇潇</span> <span class="code-inline">看看甜妹</span> <span class="code-inline">看看清纯</span> <span class="code-inline">看看萌娃</span> <span class="code-inline">看看慢摇</span> <span class="code-inline">看看COS</span> <span class="code-inline">看看余震</span> <span class="code-inline">看看欲梦</span> <span class="code-inline">看看萝莉</span> <span class="code-inline">看看晴天</span> <span class="code-inline">光剑变装</span> <span class="code-inline">动漫变装</span> <span class="code-inline">完美身材</span> <span class="code-inline">火车摇</span> <span class="code-inline">蹲下变装</span> <span class="code-inline">看看吊带</span> <span class="code-inline">擦玻璃</span> <span class="code-inline">背影变装</span> <span class="code-inline">安慕希</span> <span class="code-inline">看看微胖</span> <span class="code-inline">硬气卡点</span> <span class="code-inline">黑白双煞</span> <span class="code-inline">猫系女友</span> <span class="code-inline">看看女仆</span> <span class="code-inline">又纯又欲</span> <span class="code-inline">看看甩裙</span> <span class="code-inline">看看腹肌</span> <span class="code-inline">看看原神</span>
-                            </div>
-                        </div>
-                        <div class="api-category">
-                            <h5>【audio】8个：</h5>
-                            <div class="api-grid">
-                                <span class="code-inline">每日听力</span> <span class="code-inline">逆天语音</span> <span class="code-inline">坤叫</span> <span class="code-inline">报时</span> <span class="code-inline">王者语音</span> <span class="code-inline">喘息</span> <span class="code-inline">原神语音</span> <span class="code-inline">御姐撒娇</span>
-                            </div>
-                        </div>
-                    </div>
-                </details>
-            </div>
-
             <div class="plugin-card" id="plugin-msg-send">
                 <h4 class="plugin-header">
                     <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm-1 14H5V7h14zM7.5 15l3-4-3-4v8zm5 0h3v-2h-3v2z"/></svg>
                     【骰子消息发送】
                 </h4>
                 <ul>
-                    <li>发送纯文本: <code class="code-inline">/text &lt;文本&gt;</code></li>
-                    <li>发送表情: <code class="code-inline">/face &lt;ID&gt; &lt;数量&gt;</code></li>
+                    <li>发送纯文本: <code class="code-inline">/text <文本></code></li>
+                    <li>发送表情: <code class="code-inline">/face <ID> <数量></code></li>
                     <li>发送骰子表情: <code class="code-inline">/dice</code> (或 <code>骰子</code>)</li>
                     <li>发送猜拳表情: <code class="code-inline">/rps (石头/剪刀/布)</code></li>
                     <li>@用户: <code class="code-inline">/at QQ</code> (或 <code>@某人</code>, <code>all</code>)</li>
                     <li>推荐联系人: <code class="code-inline">/contact 群号</code> (或 <code>@群友</code>, <code>@QQ号</code>)</li>
-                    <li>发送音乐: <code class="code-inline">/music &lt;平台&gt; &lt;ID&gt;</code></li>
+                    <li>发送音乐: <code class="code-inline">/music <平台> <ID></code></li>
                     <li>发送Markdown消息: <code class="code-inline">/markdown</code> (或 <code>/md</code>)</li>
                     <li>发送合并转发节点: <code class="code-inline">/node 标题 内容</code> (需引用消息)</li>
                     <li>转发消息: <code class="code-inline">/forward</code> (或 <code>/转发</code>) (需引用消息)</li>
